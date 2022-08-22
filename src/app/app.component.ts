@@ -24,9 +24,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true
-    /*this.products$ = this.productService.getAll()
-      .pipe(
-        tap(() => this.loading = false))*/
     this.productService.getAll().subscribe(() => {
       this.loading = false
     })

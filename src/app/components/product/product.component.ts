@@ -7,7 +7,6 @@ import { IProduct } from '../../models/products'
 })
 export class ProductComponent {
   @Input() product: IProduct
-  notFound = 'Not found'
   details = false
 
 }

@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs'
   providedIn: 'root'
 })
 export class ModalService implements OnInit {
+
   isVisible$ = new BehaviorSubject<boolean>(false)
 
   open() {
@@ -13,9 +14,8 @@ export class ModalService implements OnInit {
 
   close() {
     this.isVisible$.next(false)
-
+    alert('Одежда успешно добавлена!')
   }
-
 
   ngOnInit(): void {
     throw new Error('Method not implemented.')
