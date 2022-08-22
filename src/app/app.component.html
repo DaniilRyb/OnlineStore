@@ -20,15 +20,15 @@
 
 <app-global-error></app-global-error>
 
-<h1 class='font-bold mb-2 text-center text-2xl bg-blue-600 text-blue-50'>{{title | titlecase}}</h1>
-
-<h1 class='text-blue-600 font-bold '>Please enter your clothing to search:</h1>
-<input type='text' class='mb-2 border py-2 px-4 w-full'
-       placeholder='Filter products...'
-       [(ngModel)]='term'>
+<h1 class='font-bold mb-7 text-center text-2xl bg-blue-600 text-blue-50 h-[100px] pt-7'>{{title | uppercase}}</h1>
 
 
 <div class='max-w-2xl container mx-auto pt-5'>
+
+  <h1 class='text-blue-600 font-bold '>Please enter your clothing to search:</h1>
+  <input type='text' class='mb-2 border py-2 px-4 w-full'
+         placeholder='Filter products...'
+         [(ngModel)]='term'>
 
   <p *ngIf='loading' class='text-center text-lg'>Loading. Please waiting...</p>
 

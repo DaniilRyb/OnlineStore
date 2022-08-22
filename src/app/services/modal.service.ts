@@ -20,6 +20,4 @@ export class ModalService implements OnInit {
   ngOnInit(): void {
     throw new Error('Method not implemented.')
   }
-
-
 }
