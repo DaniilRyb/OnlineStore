@@ -1,0 +1,19 @@
+<form [formGroup]='form' (ngSubmit)='submit()'>
+  <input type='text'
+         class='border w-full py-2 px-4 mb-2'
+         placeholder='Product name'
+         formControlName='titleInput'
+         appFocus
+  >
+
+  <p class='text-red-600 font-medium mb-2'
+     *ngIf='titleInput.errors?.minlength && titleInput.touched'>
+    <!-- чтобы 9-ая строчка кода работала
+     необходимо изменить в tsconfig.ts на "noPropertyAccessFromIndexSignature": false-->
+    Please fill title field width min length. Input {{titleInput.value.length}}</p>
+  <button
+    type='submit'
+    class='py-2 px-4 bg-blue-600 text-white'>
+    Create
+  </button>
+</form>

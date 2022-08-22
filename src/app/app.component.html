@@ -1,0 +1,47 @@
+<!--
+<h1 class='text-3xl font-bold underline' (click)='changeTitle()'>{{title}}</h1>
+<h2 class='bg-amber-600 font-black cursor-n-resize'>Hello</h2>
+
+<div>
+  <div *ngFor='let d of data'>
+    Name: {{d.name}}, Age: {{d.age}}</div>
+</div>
+
+<button class='m-2 bg-auto justify-center' (click)='onClick()'>Click me</button>
+<div *ngIf='IsOpenMenu'>
+  <div>Меню</div>
+  <h1 class='bg-blue-600 m-auto p-2 border text-2xl'><a href='#' class='content-center'>1</a></h1>
+  <h1 class='bg-blue-600 m-auto p-2 border text-2xl'><a href='#' class='content-center'>2</a></h1>
+  <h1 class='bg-blue-600 m-auto p-2 border text-2xl'><a href='#' class='content-center'>3</a></h1>
+  <h1 class='bg-blue-600 m-auto p-2 border text-2xl'><a href='#' class='content-center'>4</a></h1>
+</div>
+-->
+
+
+<app-global-error></app-global-error>
+
+<h1 class='font-bold mb-2 text-center text-2xl bg-blue-600 text-blue-50'>{{title | titlecase}}</h1>
+
+<h1 class='text-blue-600 font-bold '>Please enter your clothing to search:</h1>
+<input type='text' class='mb-2 border py-2 px-4 w-full'
+       placeholder='Filter products...'
+       [(ngModel)]='term'>
+
+
+<div class='max-w-2xl container mx-auto pt-5'>
+
+  <p *ngIf='loading' class='text-center text-lg'>Loading. Please waiting...</p>
+
+  <div *ngIf='productService.products'>
+    <app-product *ngFor='let product of productService.products | filterProducts: term'
+                 [product]='product'></app-product>
+  </div>
+
+  <app-modal *ngIf='modalService.isVisible$ | async' title='Create new product'>
+    <app-create-product></app-create-product>
+  </app-modal>
+
+  <button class='rounded-full bg-red-700 text-white fixed right-5 bottom-5 py-2 px-4'
+          (click)='modalService.open()'>+
+  </button>
+</div>
